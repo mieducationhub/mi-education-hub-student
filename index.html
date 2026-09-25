@@ -26,6 +26,49 @@
 .modal{display:none;position:fixed;inset:0;z-index:50;background:#020b18f5;overflow:auto;padding:25px 4%;line-height:1.5}.modal.show{display:block}.box{max-width:1100px;margin:auto;background:#0a1b34;border:1px solid #1d527f;border-radius:20px;padding:25px}.close{float:right;background:#159bf4;color:#fff;border:0;border-radius:20px;padding:9px 17px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.card{background:#0d2441;border:1px solid #244e74;border-radius:15px;padding:18px}.card h3{color:#39b0ff}.btn{background:#159bf4;color:#fff;border:0;border-radius:9px;padding:10px 15px;cursor:pointer;text-decoration:none;display:inline-block}.muted{color:#a8bfd3}.pill{background:#123e63;color:#8bd5ff;border-radius:20px;padding:5px 9px;font-size:12px;display:inline-block}.thumb{width:100%;height:130px;object-fit:cover;border-radius:10px}.video{width:100%;max-height:500px;background:#000;border-radius:12px}
 
 .authGate{position:fixed;inset:0;z-index:100;background:#020b18f7;display:flex;align-items:center;justify-content:center;padding:18px}.authBox{width:min(520px,100%);background:#0a1b34;border:1px solid #1d527f;border-radius:20px;padding:25px;box-shadow:0 20px 70px #0008}.authTabs{display:flex;gap:8px;margin-bottom:16px}.authTabs button{flex:1}.hidden{display:none!important}.authBox h2{margin-top:0}.authBox input{width:100%;padding:12px;margin:7px 0 12px;border-radius:9px;border:1px solid #2b5c86;background:#07152a;color:white}.authBox label{font-size:13px;color:#a8bfd3}.contactCard{max-width:700px;margin:auto}.ok{color:#7fe0a2}.err{color:#ff9aa8}
+
+.mobileExplore{display:none}
+@media (max-width:700px){
+  .mobileExplore{
+    display:block;
+    padding:18px 14px 34px;
+    background:#061226;
+  }
+  .mobileExplore h2{
+    margin:0 0 6px;
+    font-size:20px;
+    color:#eef7ff;
+    text-align:center;
+  }
+  .mobileExplore p{
+    margin:0 0 16px;
+    color:#9eb5ca;
+    text-align:center;
+    font-size:13px;
+    line-height:1.5;
+  }
+  .mobileExploreGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .mobileExplore button{
+    min-height:72px;
+    border:1px solid #20517d;
+    border-radius:15px;
+    background:#0b203b;
+    color:#eef7ff;
+    font-weight:700;
+    font-size:13px;
+    padding:12px 8px;
+    box-shadow:0 8px 24px #0004;
+  }
+  .mobileExplore button:active{transform:scale(.98)}
+  .mobileExplore .wide{grid-column:1/-1}
+}
+
 </style>
 </head>
 <body>
@@ -74,6 +117,19 @@
 <button class="hot f4" onclick="about()"></button>
 <button class="hot f5" onclick="community()"></button>
 </div>
+
+<div class="mobileExplore">
+  <h2>Explore M.I. Education Hub</h2>
+  <p>Choose an option below to continue learning.</p>
+  <div class="mobileExploreGrid">
+    <button onclick="courses()">📚 Online Courses</button>
+    <button onclick="live()">🔴 Live Classes</button>
+    <button onclick="teachers()">👨‍🏫 Expert Teachers</button>
+    <button onclick="about()">🏆 Certificates</button>
+    <button class="wide" onclick="community()">👥 Student Community</button>
+  </div>
+</div>
+
 <div id="m" class="modal"></div>
 <script>
 const G={6:["Bangla","English","Mathematics","ICT","Science","BGS"],7:["Bangla","English","Mathematics","ICT","Science","BGS"],8:["Bangla","English","Mathematics","ICT","Science","BGS"],9:["Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT","BGS"],10:["Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT","BGS"],11:["Bangla","English","Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT"],12:["Bangla","English","Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT"]};
