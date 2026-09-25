@@ -90,7 +90,17 @@ const supabaseClient =
 function setMsg(html) {
   document.getElementById("authMsg").innerHTML = html;
 }
-
+function esc(text) {
+  return String(text).replace(/[&<>"']/g, function(c) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[c];
+  });
+}
 function showAuth(which) {
   ["loginForm", "registerForm", "resetForm"].forEach(id => {
     document.getElementById(id)
