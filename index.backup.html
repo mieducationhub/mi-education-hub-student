@@ -4,7 +4,24 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>M.I. Education Hub — Student</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#061226;color:#eef7ff;font-family:Arial,sans-serif}.home{position:relative;line-height:0}.home img{width:100%;display:block}.hot{position:absolute;z-index:5;background:transparent;border:0;cursor:pointer}.hot:hover{background:#159bf42b;outline:2px solid #24aaff;border-radius:10px}
+*{box-sizing:border-box}body{margin:0;background:#061226;color:#eef7ff;font-family:Arial,sans-serif}.home{position:relative;line-height:0}.home img{width:100%;height:auto;display:block}
+@media (max-width:700px){
+  html,body{width:100%;min-width:0;overflow-x:hidden}
+  body{background:#061226}
+  .home{position:relative;width:100%;height:auto;min-height:0;background:#061226;overflow:hidden;line-height:0}
+  .home img{display:block;width:100%;height:auto;min-height:0;max-width:100%;object-fit:contain}
+  .hot{touch-action:manipulation}
+  .modal{padding:12px 10px}
+  .box{padding:16px;border-radius:15px;width:100%}
+  .grid{grid-template-columns:1fr;gap:10px}
+  .card{padding:14px}
+  .thumb{height:180px}
+  .authGate{padding:12px}
+  .authBox{padding:18px;border-radius:16px}
+  .authTabs{flex-wrap:wrap}
+  .authTabs button{min-width:30%;padding:10px 6px}
+}
+.hot{position:absolute;z-index:5;background:transparent;border:0;cursor:pointer}.hot:hover{background:#159bf42b;outline:2px solid #24aaff;border-radius:10px}
 .n1{left:31%;top:3%;width:7%;height:7%}.n2{left:38.5%;top:3%;width:7.5%;height:7%}.n3{left:46.5%;top:3%;width:7.5%;height:7%}.n4{left:55%;top:3%;width:7%;height:7%}.n5{left:63%;top:3%;width:9%;height:7%}.n6{left:72%;top:3%;width:7%;height:7%}.n7{right:9%;top:2.5%;width:7.5%;height:7.5%}.n8{right:1%;top:2.5%;width:8%;height:7.5%}.search{left:6%;top:58%;width:36%;height:8%;border-radius:35px}.f1{left:6%;top:67%;width:6.8%;height:12%}.f2{left:13.3%;top:67%;width:6.8%;height:12%}.f3{left:20.7%;top:67%;width:6.8%;height:12%}.f4{left:28%;top:67%;width:6.8%;height:12%}.f5{left:35.4%;top:67%;width:7%;height:12%}
 .modal{display:none;position:fixed;inset:0;z-index:50;background:#020b18f5;overflow:auto;padding:25px 4%;line-height:1.5}.modal.show{display:block}.box{max-width:1100px;margin:auto;background:#0a1b34;border:1px solid #1d527f;border-radius:20px;padding:25px}.close{float:right;background:#159bf4;color:#fff;border:0;border-radius:20px;padding:9px 17px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.card{background:#0d2441;border:1px solid #244e74;border-radius:15px;padding:18px}.card h3{color:#39b0ff}.btn{background:#159bf4;color:#fff;border:0;border-radius:9px;padding:10px 15px;cursor:pointer;text-decoration:none;display:inline-block}.muted{color:#a8bfd3}.pill{background:#123e63;color:#8bd5ff;border-radius:20px;padding:5px 9px;font-size:12px;display:inline-block}.thumb{width:100%;height:130px;object-fit:cover;border-radius:10px}.video{width:100%;max-height:500px;background:#000;border-radius:12px}
 
