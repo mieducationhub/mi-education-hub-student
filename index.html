@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M.I. Education Hub — Student</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#061226;color:#eef7ff;font-family:Arial,sans-serif}.home{position:relative;line-height:0}.home img{width:100%;display:block}.hot{position:absolute;z-index:5;background:transparent;border:0;cursor:pointer}.hot:hover{background:#159bf42b;outline:2px solid #24aaff;border-radius:10px}
+.n1{left:31%;top:3%;width:7%;height:7%}.n2{left:38.5%;top:3%;width:7.5%;height:7%}.n3{left:46.5%;top:3%;width:7.5%;height:7%}.n4{left:55%;top:3%;width:7%;height:7%}.n5{left:63%;top:3%;width:9%;height:7%}.n6{left:72%;top:3%;width:7%;height:7%}.n7{right:9%;top:2.5%;width:7.5%;height:7.5%}.n8{right:1%;top:2.5%;width:8%;height:7.5%}.search{left:6%;top:58%;width:36%;height:8%;border-radius:35px}.f1{left:6%;top:67%;width:6.8%;height:12%}.f2{left:13.3%;top:67%;width:6.8%;height:12%}.f3{left:20.7%;top:67%;width:6.8%;height:12%}.f4{left:28%;top:67%;width:6.8%;height:12%}.f5{left:35.4%;top:67%;width:7%;height:12%}
+.modal{display:none;position:fixed;inset:0;z-index:50;background:#020b18f5;overflow:auto;padding:25px 4%;line-height:1.5}.modal.show{display:block}.box{max-width:1100px;margin:auto;background:#0a1b34;border:1px solid #1d527f;border-radius:20px;padding:25px}.close{float:right;background:#159bf4;color:#fff;border:0;border-radius:20px;padding:9px 17px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}.card{background:#0d2441;border:1px solid #244e74;border-radius:15px;padding:18px}.card h3{color:#39b0ff}.btn{background:#159bf4;color:#fff;border:0;border-radius:9px;padding:10px 15px;cursor:pointer;text-decoration:none;display:inline-block}.muted{color:#a8bfd3}.pill{background:#123e63;color:#8bd5ff;border-radius:20px;padding:5px 9px;font-size:12px;display:inline-block}.thumb{width:100%;height:130px;object-fit:cover;border-radius:10px}.video{width:100%;max-height:500px;background:#000;border-radius:12px}
+</style>
+</head>
+<body>
+<div class="home">
+<img src="home-page.png">
+<button class="hot n1" onclick="closeM()"></button>
+<button class="hot n2" onclick="courses()"></button>
+<button class="hot n3" onclick="live()"></button>
+<button class="hot n4" onclick="teachers()"></button>
+<button class="hot n5" onclick="community()"></button>
+<button class="hot n6" onclick="about()"></button>
+<button class="hot n7" onclick="contact()"></button>
+<button class="hot n8" onclick="contact()"></button>
+<button class="hot search" onclick="searchCourse()"></button>
+<button class="hot f1" onclick="courses()"></button>
+<button class="hot f2" onclick="live()"></button>
+<button class="hot f3" onclick="teachers()"></button>
+<button class="hot f4" onclick="about()"></button>
+<button class="hot f5" onclick="community()"></button>
+</div>
+<div id="m" class="modal"></div>
+<script>
+const G={6:["Bangla","English","Mathematics","ICT","Science","BGS"],7:["Bangla","English","Mathematics","ICT","Science","BGS"],8:["Bangla","English","Mathematics","ICT","Science","BGS"],9:["Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT","BGS"],10:["Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT","BGS"],11:["Bangla","English","Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT"],12:["Bangla","English","Physics","Chemistry","Mathematics","Higher Mathematics","Biology","ICT"]};
+const M={6:["Arabic 1st & 2nd","Quran","Aqidah"],7:["Arabic 1st & 2nd","Quran","Hadith","Aqidah"],8:["Arabic 1st & 2nd","Quran","Hadith","Aqidah"],9:["Arabic 1st & 2nd","Quran","Hadith","Aqidah"],10:["Arabic 1st & 2nd","Quran","Hadith","Aqidah"],11:["Arabic 1st & 2nd","Quran","Hadith","Aqidah"],12:["Arabic 1st & 2nd","Quran","Hadith","Aqidah"]};
+const el=document.getElementById("m"),esc=s=>String(s||"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x])),C=()=>JSON.parse(localStorage.getItem("miHubCourses")||"[]"),L=()=>JSON.parse(localStorage.getItem("miHubLive")||"[]"),T=()=>JSON.parse(localStorage.getItem("miHubTeachers")||"[]"),D=()=>JSON.parse(localStorage.getItem("miHubData")||'{"ownerName":"Mahibul Islam","phone":"0181606236","facebookGroup":"","about":"","advice":""}');
+function open(x){el.innerHTML='<div class="box">'+x+'</div>';el.classList.add("show")}function closeM(){el.classList.remove("show")}
+function courses(){open('<button class="close" onclick="closeM()">Close</button><h2>Courses</h2><p class="muted">Select Class → General/Madrasa → Subject.</p><div class="grid">'+[6,7,8,9,10,11,12].map(c=>`<div class="card"><h3>Class ${c}</h3><button class="btn" onclick="boards(${c})">Open Class ${c}</button></div>`).join("")+'</div>')}
+function boards(c){open(`<button class="close" onclick="courses()">Back</button><h2>Class ${c}</h2><div class="grid"><div class="card"><h3>General</h3><button class="btn" onclick="subjects(${c},'General')">Open General</button></div><div class="card"><h3>Madrasa</h3><button class="btn" onclick="subjects(${c},'Madrasa')">Open Madrasa</button></div></div>`)}
+function subjects(c,b){let a=(b=="General"?G:M)[c];open(`<button class="close" onclick="boards(${c})">Back</button><h2>Class ${c} — ${b}</h2><div class="grid">${a.map(s=>`<div class="card"><h3>${esc(s)}</h3><button class="btn" onclick="lessons(${c},'${b}','${esc(s)}')">View Classes</button></div>`).join("")}</div>`)}
+function lessons(c,b,s){let a=C().filter(x=>String(x.className)==c&&x.board==b&&x.subject==s);open(`<button class="close" onclick="subjects(${c},'${b}')">Back</button><h2>Class ${c} — ${b} — ${esc(s)}</h2><div class="grid">${a.length?a.map((x,i)=>`<div class="card">${x.thumb?`<img class="thumb" src="${esc(x.thumb)}">`:""}<span class="pill">${esc(x.subject)}</span><h3>${esc(x.title)}</h3><p class="muted">${esc(x.description)}</p><button class="btn" onclick="watch(${i},${c},'${b}','${esc(s)}')">Watch Class</button></div>`).join(""):'<div class="card">No recorded class uploaded yet.</div>'}</div>`)}
+function watch(i,c,b,s){let a=C().filter(x=>String(x.className)==c&&x.board==b&&x.subject==s),x=a[i];open(`<button class="close" onclick="lessons(${c},'${b}','${s}')">Back</button><h2>${esc(x.title)}</h2>${x.video?`<video class="video" controls src="${esc(x.video)}"></video>`:'<div class="card">Video has not been uploaded yet.</div>'}<p class="muted">${esc(x.description)}</p>`)}
+function searchCourse(){let q=prompt("Search course, subject, class or lesson title:","");if(q===null)return;q=q.toLowerCase();let a=C().filter(x=>(x.title+" "+x.subject+" "+x.board+" "+x.className).toLowerCase().includes(q));open(`<button class="close" onclick="closeM()">Close</button><h2>Search Results</h2><div class="grid">${a.length?a.map((x,i)=>`<div class="card"><span class="pill">Class ${esc(x.className)}</span><span class="pill">${esc(x.board)}</span><h3>${esc(x.title)}</h3><button class="btn" onclick="searchWatch(${i},'${esc(q)}')">Open Class</button></div>`).join(""):'<div class="card">No course found.</div>'}</div>`)}
+function searchWatch(i,q){let a=C().filter(x=>(x.title+" "+x.subject+" "+x.board+" "+x.className).toLowerCase().includes(q)),x=a[i];open(`<button class="close" onclick="searchCourse()">Back</button><h2>${esc(x.title)}</h2>${x.video?`<video class="video" controls src="${esc(x.video)}"></video>`:"<div class=card>No video uploaded yet.</div>"}`)}
+function live(){let a=L();open('<button class="close" onclick="closeM()">Close</button><h2>Live Classes</h2><div class="grid">'+(a.length?a.map(x=>`<div class="card"><span class="pill">LIVE</span><h3>${esc(x.title)}</h3><p>${esc(x.className)} • ${esc(x.subject)}</p><p class="muted">${esc(x.time)}</p><a class="btn" target="_blank" href="${esc(x.url)}">Join Live Class</a></div>`).join(""):'<div class="card">No live class is scheduled right now.</div>')+'</div>')}
+function teachers(){let a=T();open('<button class="close" onclick="closeM()">Close</button><h2>Teachers</h2><div class="grid">'+(a.length?a.map(x=>`<div class="card">${x.photo?`<img class="thumb" src="${esc(x.photo)}">`:""}<h3>${esc(x.name)}</h3><p>${esc(x.subject)}</p><p class="muted">${esc(x.bio)}</p></div>`).join(""):'<div class="card">Teacher profiles will appear here.</div>')+'</div>')}
+function community(){let d=D();open(`<button class="close" onclick="closeM()">Close</button><h2>Student Community</h2><div class="card"><p>Join the official Facebook group.</p>${d.facebookGroup?`<a class="btn" target="_blank" href="${esc(d.facebookGroup)}">Join Facebook Group</a>`:'<p class="muted">Facebook group link will appear here after the owner adds it.</p>'}</div>`)}
+function about(){let d=D();open(`<button class="close" onclick="closeM()">Close</button><h2>About</h2><div class="card"><h3>${esc(d.ownerName)}</h3><p>${esc(d.about)}</p><p><b>Advice:</b> ${esc(d.advice)}</p></div>`)}
+function contact(){let d=D(),w=String(d.phone).replace(/\D/g,"").replace(/^0/,"880");open(`<button class="close" onclick="closeM()">Close</button><h2>Contact</h2><div class="card"><p>Choose an option:</p><a class="btn" href="tel:${esc(d.phone)}">📞 Direct Call</a> <a class="btn" target="_blank" href="https://wa.me/${w}">💬 WhatsApp</a></div>`)}
+</script>
+</body></html>
