@@ -6,15 +6,13 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#061226;color:#eef7ff;font-family:Arial,sans-serif}.home{position:relative;line-height:0}.home img{width:100%;height:auto;display:block}
 @media (max-width:700px){
-  body{overflow-x:hidden}
-  .home{width:100vw;min-height:100svh;background:#061226}
-  .home img{width:100vw;height:100svh;min-height:560px;object-fit:fill;display:block}
+  html,body{width:100%;min-width:0;overflow-x:hidden}
+  body{background:#061226}
+  .home{position:relative;width:100%;height:auto;min-height:0;background:#061226;overflow:hidden;line-height:0}
+  .home img{display:block;width:100%;height:auto;min-height:0;max-width:100%;object-fit:contain}
   .hot{touch-action:manipulation}
-  .n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8{top:2.5%;height:8.5%}
-  .search{top:57%;height:8.5%}
-  .f1,.f2,.f3,.f4,.f5{top:66%;height:13%}
   .modal{padding:12px 10px}
-  .box{padding:16px;border-radius:15px;width:100%;}
+  .box{padding:16px;border-radius:15px;width:100%}
   .grid{grid-template-columns:1fr;gap:10px}
   .card{padding:14px}
   .thumb{height:180px}
